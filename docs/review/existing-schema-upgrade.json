@@ -1,0 +1,8 @@
+{
+    "result": "passed",
+    "copied_schema_tables": 49,
+    "fixture_preserved": true,
+    "operational_data_copied": false,
+    "source_database_mutated": false,
+    "disposable_schema": "mgs_upgrade_20261004_175039_test"
+}

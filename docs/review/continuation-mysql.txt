@@ -1,0 +1,11 @@
+PHPUnit 12.5.30 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.3.30
+Configuration: C:\laragon\www\mgs-api\phpunit.xml
+
+................................................................. 65 / 79 ( 82%)
+..............                                                    79 / 79 (100%)
+
+Time: 05:09.585, Memory: 64.00 MB
+
+[30;42mOK (79 tests, 317 assertions)[0m

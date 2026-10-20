@@ -1,0 +1,74 @@
+
+ Migration name .. Batch / Status 
+ 0001_01_01_000000_create_users_table .. [1] Ran 
+ 0001_01_01_000001_create_cache_table .. [1] Ran 
+ 0001_01_01_000002_create_jobs_table .. [1] Ran 
+ 2026_06_24_203405_create_merchants_table .. [1] Ran 
+ 2026_06_24_203438_create_bank_accounts_table .. [1] Ran 
+ 2026_06_24_203455_create_wallets_table .. [1] Ran 
+ 2026_06_24_203519_create_wallet_transactions_table .. [1] Ran 
+ 2026_06_24_203542_create_pricing_rules_table .. [1] Ran 
+ 2026_06_24_203605_create_kyc_identities_table .. [1] Ran 
+ 2026_06_24_203638_create_customers_table .. [1] Ran 
+ 2026_06_24_203919_create_customer_kyc_verifications_table .. [1] Ran 
+ 2026_06_24_203944_create_providers_table .. [1] Ran 
+ 2026_06_24_204000_create_virtual_accounts_table .. [1] Ran 
+ 2026_06_24_204025_create_transactions_table .. [1] Ran 
+ 2026_06_24_204046_create_api_keys_table .. [1] Ran 
+ 2026_06_24_204103_create_api_logs_table .. [1] Ran 
+ 2026_06_24_204126_create_webhook_endpoints_table .. [1] Ran 
+ 2026_06_24_204154_create_webhook_logs_table .. [1] Ran 
+ 2026_06_24_204215_create_admins_table .. [1] Ran 
+ 2026_06_24_204216_create_payouts_table .. [1] Ran 
+ 2026_06_24_204319_create_support_tickets_table .. [1] Ran 
+ 2026_06_24_204338_create_login_histories_table .. [1] Ran 
+ 2026_06_24_204354_create_devices_table .. [1] Ran 
+ 2026_06_24_204410_create_audit_logs_table .. [1] Ran 
+ 2026_06_24_204441_create_system_settings_table .. [1] Ran 
+ 2026_06_28_175631_create_personal_access_tokens_table .. [2] Ran 
+ 2026_07_02_153100_create_business_activations_table .. [3] Ran 
+ 2026_07_03_173251_create_registration_otps_table .. [4] Ran 
+ 2026_07_05_195518_create_support_tickets_table .. [5] Ran 
+ 2026_07_07_164424_create_admin_roles_table .. [6] Ran 
+ 2026_07_07_164429_create_admin_permissions_table .. [6] Ran 
+ 2026_07_07_164551_create_roles_table .. [6] Ran 
+ 2026_07_07_164552_create_permissions_table .. [6] Ran 
+ 2026_07_07_165535_create_activity_logs_table .. [7] Ran 
+ 2026_07_07_170037_create_notifications_table .. [7] Ran 
+ 2026_07_10_000001_add_current_merchant_id_to_users_table .. [11] Ran 
+ 2026_07_11_171555_create_businesses_table .. [12] Ran 
+ 2026_07_15_142301_make_business_category_nullable_in_business_activations .. [13] Ran 
+ 2026_07_15_150431_make_business_activation_fields_nullable .. [14] Ran 
+ 2026_07_18_120000_add_website_url_to_business_activations_table .. [16] Ran 
+ 2026_07_18_130000_add_business_context_to_users_and_activations .. [17] Ran 
+ 2026_07_18_131000_repair_auto_approved_placeholder_businesses .. [17] Ran 
+ 2026_07_19_160919_add_name_fields_to_business_activations_table .. [18] Ran 
+ 2026_07_20_135238_create_provider_funding_charges_table .. [19] Ran 
+ 2026_07_20_143828_create_merchant_withdrawal_settings_table .. [20] Ran 
+ 2026_07_20_143938_add_processing_fields_to_payouts_table .. [20] Ran 
+ 2026_07_21_123623_add_business_and_withdrawal_setting_to_payouts_table .. [21] Ran 
+ 2026_07_21_141538_create_withdrawal_otps_table .. [22] Ran 
+ 2026_07_21_173631_update_status_enum_on_payouts_table .. [23] Ran 
+ 2026_07_21_191244_add_business_isolation_and_virtual_account_policy .. [24] Ran 
+ 2026_07_22_151559_add_global_virtual_account_controls_to_system_settings .. [25] Ran 
+ 2026_07_24_155006_add_unique_provider_reference_to_transactions .. [26] Ran 
+ 2026_07_27_120000_harden_authorization_and_settings_schema .. [27] Ran 
+ 2026_07_27_150000_harden_business_activation_identity_and_api_keys .. [28] Ran 
+ 2026_07_27_170000_scope_api_keys_to_businesses_and_harden_business_status .. [28] Ran 
+ 2026_07_27_180000_create_provider_health_checks_table .. [28] Ran 
+ 2026_07_27_190000_create_provider_operations_and_incidents_tables .. [28] Ran 
+ 2026_07_27_200000_create_notification_deliveries_table .. [28] Ran 
+ 2026_07_27_210000_create_idempotency_keys_table .. [28] Ran 
+ 2026_07_27_220000_harden_authentication_and_devices .. [28] Ran 
+ 2026_07_27_230000_harden_kyc_verification_lifecycle .. [28] Ran 
+ 2026_07_27_231000_scope_transactions_to_businesses .. [28] Ran 
+ 2026_07_27_232000_add_admin_reporting_indexes .. [28] Ran 
+ 2026_07_27_234000_isolate_wallets_by_business .. [29] Ran 
+ 2026_07_27_235000_scope_settlement_accounts_to_businesses .. [29] Ran 
+ 2026_07_27_236000_enforce_business_ownership_on_financial_records .. [29] Ran 
+ 2026_10_03_000001_add_admin_actor_references .. [30] Ran 
+ 2026_10_04_000001_add_administrator_mfa .. Pending 
+ 2026_10_04_000002_repair_legacy_webhook_outbox_columns .. Pending 
+ 2026_10_04_000003_add_user_mfa_pending_secret_and_replay_counter .. Pending 
+ 2026_10_04_000004_widen_user_mfa_secret_for_encryption .. Pending 
+

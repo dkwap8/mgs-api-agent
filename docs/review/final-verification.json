@@ -1,0 +1,45 @@
+{
+  "verified_at_utc": "2026-10-04T17:58:16.944862+00:00",
+  "sqlite": {
+    "tests": 69,
+    "assertions": 261,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 1
+  },
+  "mariadb_upgraded_schema": {
+    "tests": 69,
+    "assertions": 262,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "mariadb_two_process_withdrawal": "passed",
+  "legacy_schema_missing_columns": [],
+  "browser_checks": 8,
+  "browser_authenticated_data": "synthetic API fixtures, built frontend; backend authorization and 404s tested by PHPUnit",
+  "php_lint": {
+    "result": "passed",
+    "php_files": 364,
+    "errors": []
+  },
+  "frontend_build": "passed",
+  "composer_known_advisories": 0,
+  "npm_known_advisories": 0,
+  "preservation": {
+    "environment_hash_matches": true,
+    "original_upload_hash_matches": true,
+    "original_database_migrated": false,
+    "live_payments_performed": false
+  },
+  "original_document": {
+    "result": "passed",
+    "status": 200,
+    "mime": "image/jpeg",
+    "bytes": 923528,
+    "hash_matches_original": true,
+    "database_writes": false
+  },
+  "provider_certified": false,
+  "production_acceptance_complete": false
+}

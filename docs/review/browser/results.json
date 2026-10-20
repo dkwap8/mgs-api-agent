@@ -1,0 +1,49 @@
+{
+  "findings": [
+    {
+      "check": "Public user login has no administrator selector, query cannot switch context",
+      "result": "passed"
+    },
+    {
+      "check": "Unauthenticated admin page opens dedicated admin login",
+      "result": "passed"
+    },
+    {
+      "check": "Unauthenticated user dashboard opens user login",
+      "result": "passed"
+    },
+    {
+      "check": "Administrator token does not redirect user login to administrator dashboard",
+      "result": "passed"
+    },
+    {
+      "check": "Mobile login and dark theme fit the viewport",
+      "result": "passed"
+    },
+    {
+      "check": "Pending dashboard renders without requesting restricted customers (mocked API)",
+      "result": "passed"
+    },
+    {
+      "check": "Activation preview retrieves authorized blob and displays image (mocked API)",
+      "result": "passed"
+    },
+    {
+      "check": "Administrator dashboard loads its summary using its own browser context (mocked API)",
+      "result": "passed"
+    },
+    {
+      "check": "User security shows recorded devices and usable authenticator setup (mocked API)",
+      "result": "passed"
+    },
+    {
+      "check": "Fixture API/file URLs return 404; Laravel route behavior is covered by PHPUnit",
+      "result": "passed"
+    }
+  ],
+  "pageErrors": [],
+  "finalUrl": "http://127.0.0.1:8022/user/settings",
+  "finalPageText": "M\n\nMGS\n\nMERCHANT\n\n🏢\n\nPending fixture\n\nFixture User\n\nBUSINESS CODE\n\nMGS000001\n⧉\nUnder review\n\nOVERVIEW\n\n▦\nDashboard\n◩\nAnalytics\n\nCOLLECT\n\n♟\nCustomers\n↻\nTransactions\n▰\nVirtual Accounts\n\nPAYOUTS\n\n⇧\nPayouts\n\nDEVELOPER\n\n⚿\nAPI Keys\n◎\nWebhooks\n▤\nDocumentation\n\nACCOUNT\n\n⚙️\nProfile & Settings\n❓\nHelp & Support\n↪\nLog out\n🏢\nBUSINESS ACCOUNT\nPending fixture\n▾\nActivate Your Business\n🔔\n2\nFU\nProfile Settings\n\nManage your personal profile and your business settings.\n\nUser Profile\n\nYour account details. Contact support to request an identity or login-email change.\n\nFirst name\nLast name\nPhone number\nLogin email\n\nThis is the email you sign in with.\n\nContact support to request changes to your verified identity or login details.\n\nContact Support\nBusiness Profile\n\nSet your business verification (KYB) — contact support to change\n\nBusiness Name\nBusiness Email\n\nThis email is used for transaction notifications\n\nBusiness Phone\nBusiness Address\nBusiness Category\nSelect category\nE-commerce\nFinancial Services\nEducation\nLogistics\nVTU / Data Services\nOther\n\nYou can update business contact details here. Contact support to change the verified business name or category.\n\nUpdate Business\nSecurity Settings\n\nManage your account security and authentication preferences\n\nAuthenticator authentication\n\nUse an authenticator app for a second login factor.\n\nCurrent password\n\nAdd this setup key to your authenticator: FIXTURE-SETUP-KEY\n\nAccount: ; issuer: MGSAPI; six digits, every 30 seconds. Keep the key private.\n\nAuthenticator code\nConfirm authenticator\nDevices\nRefresh devices\n\nRecorded browser fixture\n\n192.0.2.1 · Last seen 10/4/2026, 11:00:00 AM\n\nRevoke device\nSign out all sessions\nChange Password\n\nEnsure your account is using a long, random password to stay secure.\n\nCurrent Password\n👁️\nNew Password\n👁️\nConfirm New Password\n👁️\nChange Password\n\nForgot your password? Reset it by email.\n\nWithdrawal PIN\n\nThis PIN will be required before withdrawals or payouts.\n\nNew PIN\n👁️\nConfirm PIN\n👁️\nAccount Password\n👁️\nCreate / Change PIN",
+  "authenticatedData": "mocked fixtures; no real provider calls or payments",
+  "url": "http://127.0.0.1:8022"
+}

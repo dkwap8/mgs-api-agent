@@ -1,0 +1,8 @@
+Final release cleanup
+=====================
+
+.gitignore1
+- Obsolete duplicate of the active .gitignore file.
+
+mgs_api_multibusiness_refactor.patch
+- Historical intermediate patch already integrated into the cumulative source tree.

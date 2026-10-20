@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="C:\laragon\www\mgs-api\phpunit.xml" tests="6" assertions="12" errors="0" failures="0" skipped="0" time="1.470743">
+    <testsuite name="Feature" tests="6" assertions="12" errors="0" failures="0" skipped="0" time="1.470743">
+      <testsuite name="Tests\Feature\WebhookContractTest" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" tests="6" assertions="12" errors="0" failures="0" skipped="0" time="1.470743">
+        <testcase name="test_monnify_name_enquiry_uses_v2_get_and_rejects_unmatched_account" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="12" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="3" time="0.997232"/>
+        <testcase name="test_monnify_disbursement_keeps_merchant_and_provider_references_distinct" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="29" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="3" time="0.105343"/>
+        <testcase name="test_monnify_reserved_account_collection_reads_documented_destination" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="40" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="2" time="0.116696"/>
+        <testcase name="test_unrelated_monnify_event_cannot_become_a_collection" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="52" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="1" time="0.073939"/>
+        <testcase name="test_monnify_uses_raw_body_sha512_signature" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="58" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="2" time="0.099011"/>
+        <testcase name="test_sandbox_flag_cannot_bypass_authentication_for_wallet_credit_webhook" file="C:\laragon\www\mgs-api\tests\Feature\WebhookContractTest.php" line="71" class="Tests\Feature\WebhookContractTest" classname="Tests.Feature.WebhookContractTest" assertions="1" time="0.078522"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

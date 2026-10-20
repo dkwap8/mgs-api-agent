@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="C:\laragon\www\mgs-api\phpunit.xml" tests="13" assertions="57" errors="0" failures="0" skipped="0" time="6.253269">
+    <testsuite name="Feature" tests="13" assertions="57" errors="0" failures="0" skipped="0" time="6.253269">
+      <testsuite name="Tests\Feature\BrowserSessionSecurityTest" file="C:\laragon\www\mgs-api\tests\Feature\BrowserSessionSecurityTest.php" tests="4" assertions="22" errors="0" failures="0" skipped="0" time="4.797172">
+        <testcase name="test_browser_user_login_returns_httponly_cookie_without_json_token_and_enforces_csrf" file="C:\laragon\www\mgs-api\tests\Feature\BrowserSessionSecurityTest.php" line="16" class="Tests\Feature\BrowserSessionSecurityTest" classname="Tests.Feature.BrowserSessionSecurityTest" assertions="9" time="4.376424"/>
+        <testcase name="test_user_cookie_cannot_authenticate_admin_and_admin_cookie_cannot_authenticate_user" file="C:\laragon\www\mgs-api\tests\Feature\BrowserSessionSecurityTest.php" line="32" class="Tests\Feature\BrowserSessionSecurityTest" classname="Tests.Feature.BrowserSessionSecurityTest" assertions="3" time="0.122032"/>
+        <testcase name="test_admin_browser_cookie_is_secure_in_production_and_bearer_api_login_still_works" file="C:\laragon\www\mgs-api\tests\Feature\BrowserSessionSecurityTest.php" line="44" class="Tests\Feature\BrowserSessionSecurityTest" classname="Tests.Feature.BrowserSessionSecurityTest" assertions="8" time="0.203975"/>
+        <testcase name="test_cross_origin_browser_login_is_rejected_before_credentials_are_used" file="C:\laragon\www\mgs-api\tests\Feature\BrowserSessionSecurityTest.php" line="57" class="Tests\Feature\BrowserSessionSecurityTest" classname="Tests.Feature.BrowserSessionSecurityTest" assertions="2" time="0.094741"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\ProviderSafetyTest" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" tests="5" assertions="9" errors="0" failures="0" skipped="0" time="0.494059">
+        <testcase name="test_production_adapter_defaults_cannot_replace_an_explicit_contract" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" line="12" class="Tests\Feature\ProviderSafetyTest" classname="Tests.Feature.ProviderSafetyTest" assertions="2" time="0.072955"/>
+        <testcase name="test_http_error_never_means_a_payout_failed_and_post_is_not_retried" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" line="34" class="Tests\Feature\ProviderSafetyTest" classname="Tests.Feature.ProviderSafetyTest" assertions="2" time="0.255447"/>
+        <testcase name="test_successful_http_response_without_status_cannot_settle_payout" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" line="41" class="Tests\Feature\ProviderSafetyTest" classname="Tests.Feature.ProviderSafetyTest" assertions="1" time="0.055760"/>
+        <testcase name="test_monnify_http_failure_is_unknown_even_if_error_body_says_failed" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" line="46" class="Tests\Feature\ProviderSafetyTest" classname="Tests.Feature.ProviderSafetyTest" assertions="3" time="0.059623"/>
+        <testcase name="test_provider_configuration_is_not_serialized" file="C:\laragon\www\mgs-api\tests\Feature\ProviderSafetyTest.php" line="55" class="Tests\Feature\ProviderSafetyTest" classname="Tests.Feature.ProviderSafetyTest" assertions="1" time="0.050274"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\UserSecurityCompletionTest" file="C:\laragon\www\mgs-api\tests\Feature\UserSecurityCompletionTest.php" tests="4" assertions="26" errors="0" failures="0" skipped="0" time="0.962038">
+        <testcase name="test_user_authenticator_setup_requires_password_and_is_encrypted_confirmed_and_single_use" file="C:\laragon\www\mgs-api\tests\Feature\UserSecurityCompletionTest.php" line="11" class="Tests\Feature\UserSecurityCompletionTest" classname="Tests.Feature.UserSecurityCompletionTest" assertions="14" time="0.148228"/>
+        <testcase name="test_legacy_plaintext_totp_secret_is_read_without_rewriting_or_rotating_it" file="C:\laragon\www\mgs-api\tests\Feature\UserSecurityCompletionTest.php" line="29" class="Tests\Feature\UserSecurityCompletionTest" classname="Tests.Feature.UserSecurityCompletionTest" assertions="2" time="0.084419"/>
+        <testcase name="test_password_reset_expiry_and_single_consumption_revoke_old_tokens" file="C:\laragon\www\mgs-api\tests\Feature\UserSecurityCompletionTest.php" line="37" class="Tests\Feature\UserSecurityCompletionTest" classname="Tests.Feature.UserSecurityCompletionTest" assertions="6" time="0.593601"/>
+        <testcase name="test_device_revocation_is_owned_and_revokes_its_tokens" file="C:\laragon\www\mgs-api\tests\Feature\UserSecurityCompletionTest.php" line="53" class="Tests\Feature\UserSecurityCompletionTest" classname="Tests.Feature.UserSecurityCompletionTest" assertions="4" time="0.135790"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,1 @@
+All application, configuration, route, migration, test and bootstrap PHP files passed syntax checks.

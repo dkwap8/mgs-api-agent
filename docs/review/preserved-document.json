@@ -1,0 +1,8 @@
+{
+    "result": "passed",
+    "status": 200,
+    "mime": "image\/jpeg",
+    "bytes": 923528,
+    "hash_matches_original": true,
+    "database_writes": false
+}

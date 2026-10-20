@@ -1,0 +1,48 @@
+{
+  "verified_at": "2026-10-04T19:05:19.671812+00:00",
+  "production_ready": false,
+  "sqlite": {
+    "tests": 79,
+    "passed": 78,
+    "skipped": 1,
+    "assertions": 316
+  },
+  "mariadb_disposable_upgraded_schema": {
+    "tests": 79,
+    "passed": 79,
+    "assertions": 317
+  },
+  "browser_mocked_api": {
+    "checks": 10,
+    "page_errors": 0
+  },
+  "php_lint": {
+    "files": 373,
+    "errors": 0
+  },
+  "frontend_build": "passed",
+  "actual_provider_sandbox_calls": 0,
+  "real_payments_initiated": 0,
+  "original_database_migrations_applied": 0,
+  "original_pending_migrations": 4,
+  "restorable_original_database_backup_verified": false,
+  "preservation": {
+    ".env": {
+      "sha256": "6E92E8A73969D9F717CF79FF02A42964DA2A4D6861962B9EF61E5E4154CBDB5A",
+      "unchanged": true
+    },
+    "storage/app/public/activations/proof-address/ebyPzn0qgx7p425L5tDpoaBVu9K8Ntm8I9HkRlg5.jpg": {
+      "sha256": "85D6038C7998B656E39E0ACC5B1C721DB9A20E06E0B70B78423CF29D1411CA9E",
+      "unchanged": true
+    }
+  },
+  "limitations": [
+    "Blueprint V2 missing",
+    "Provider contracts/credentials/certification missing",
+    "Sandbox financial isolation unfinished",
+    "Provider cost/profit accounting unfinished",
+    "Target deployment/SMTP/worker crash/TLS/CSP acceptance missing",
+    "Original migrations await verified restorable backup and authorization",
+    "Full product acceptance and approved legal policies outstanding"
+  ]
+}

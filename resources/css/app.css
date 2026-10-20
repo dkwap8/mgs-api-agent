@@ -1,0 +1,327 @@
+@import "tailwindcss" source(none);
+
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../js/**/*.vue";
+@source "../js/**/*.js";
+@source "../../resources/views/**/*.blade.php";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+
+@theme {
+    --font-sans: "Inter", "Instrument Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root { color-scheme: light; }
+:root.dark { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 8% 0%, rgba(99,102,241,.08), transparent 28rem),
+        radial-gradient(circle at 100% 15%, rgba(14,165,233,.06), transparent 30rem),
+        #f8fafc;
+    color: #0f172a;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.dark body {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(99,102,241,.15), transparent 30rem),
+        radial-gradient(circle at 100% 15%, rgba(14,165,233,.08), transparent 34rem),
+        #020617;
+    color: #f8fafc;
+}
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+input, select, textarea {
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99,102,241,.12) !important;
+}
+table { border-collapse: separate; border-spacing: 0; }
+thead th { letter-spacing: .035em; text-transform: uppercase; font-size: .69rem !important; font-weight: 700 !important; }
+tbody tr { transition: background-color .18s ease; }
+::selection { background: rgba(99,102,241,.22); }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; border: 2px solid transparent; background-clip: padding-box; }
+
+#app { min-height: 100vh; }
+.page-shell { animation: page-in .28s ease-out both; }
+@keyframes page-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+/* Upgrade legacy page surfaces globally */
+main > div > .bg-white,
+main > div > section.bg-white {
+    border: 1px solid rgba(226,232,240,.8);
+}
+
+/* MGS professional design primitives */
+:root {
+    --mgs-radius-sm: .75rem;
+    --mgs-radius-md: 1rem;
+    --mgs-radius-lg: 1.5rem;
+    --mgs-shadow-card: 0 18px 45px -28px rgba(15, 23, 42, .34);
+    --mgs-shadow-focus: 0 0 0 4px rgba(79, 70, 229, .14);
+    --mgs-motion-fast: 160ms;
+    --mgs-motion-base: 240ms;
+}
+
+.ui-card {
+    border: 1px solid rgb(226 232 240 / .9);
+    border-radius: var(--mgs-radius-lg);
+    background: rgb(255 255 255 / .94);
+    box-shadow: var(--mgs-shadow-card);
+    backdrop-filter: blur(18px);
+}
+.dark .ui-card {
+    border-color: rgb(51 65 85 / .75);
+    background: rgb(15 23 42 / .9);
+}
+
+.ui-button {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: .625rem;
+    border-radius: var(--mgs-radius-md);
+    padding: .7rem 1rem;
+    font-weight: 700;
+    transition: transform var(--mgs-motion-fast) ease,
+        background-color var(--mgs-motion-fast) ease,
+        border-color var(--mgs-motion-fast) ease,
+        box-shadow var(--mgs-motion-fast) ease;
+}
+.ui-button:not(:disabled):active { transform: translateY(1px) scale(.995); }
+.ui-button-primary {
+    background: linear-gradient(135deg, #4f46e5, #6d28d9);
+    color: white;
+    box-shadow: 0 12px 28px -15px rgba(79, 70, 229, .85);
+}
+.ui-button-primary:not(:disabled):hover { box-shadow: 0 16px 34px -15px rgba(79, 70, 229, .95); }
+.ui-button-secondary {
+    border: 1px solid #cbd5e1;
+    background: rgb(255 255 255 / .85);
+    color: #334155;
+}
+.dark .ui-button-secondary { border-color: #475569; background: #0f172a; color: #e2e8f0; }
+
+.form-field { position: relative; }
+.form-control {
+    width: 100%;
+    min-height: 3.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--mgs-radius-md);
+    background: rgb(255 255 255 / .94);
+    padding: 1.35rem 1rem .45rem;
+    color: #0f172a;
+    caret-color: #4f46e5;
+}
+.dark .form-control { border-color: #475569; background: rgb(15 23 42 / .92); color: #f8fafc; }
+.form-control::placeholder { color: transparent; }
+.form-control:focus { border-color: #4f46e5 !important; box-shadow: var(--mgs-shadow-focus) !important; }
+.form-label-floating {
+    pointer-events: none;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    max-width: calc(100% - 2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #64748b;
+    font-size: .875rem;
+    transition: top var(--mgs-motion-fast) ease,
+        font-size var(--mgs-motion-fast) ease,
+        color var(--mgs-motion-fast) ease;
+}
+.form-control:focus + .form-label-floating,
+.form-control:not(:placeholder-shown) + .form-label-floating,
+.form-control:-webkit-autofill + .form-label-floating {
+    top: .45rem;
+    font-size: .68rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+.form-control[aria-invalid="true"] { border-color: #ef4444; }
+.form-help-error { margin-top: .4rem; color: #dc2626; font-size: .8rem; font-weight: 600; }
+.dark .form-help-error { color: #fca5a5; }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0f172a;
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    transition: background-color 9999s ease-out 0s;
+}
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #f8fafc;
+    box-shadow: 0 0 0 1000px #0f172a inset !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Final production UI/UX audit primitives */
+:root {
+    --mgs-primary-50: #eef2ff;
+    --mgs-primary-100: #e0e7ff;
+    --mgs-primary-500: #6366f1;
+    --mgs-primary-600: #4f46e5;
+    --mgs-primary-700: #4338ca;
+    --mgs-success: #059669;
+    --mgs-warning: #d97706;
+    --mgs-danger: #dc2626;
+    --mgs-info: #0284c7;
+    --mgs-surface: #ffffff;
+    --mgs-surface-muted: #f8fafc;
+    --mgs-border: #e2e8f0;
+    --mgs-text: #0f172a;
+    --mgs-text-muted: #64748b;
+}
+.dark {
+    --mgs-surface: #0f172a;
+    --mgs-surface-muted: #020617;
+    --mgs-border: #334155;
+    --mgs-text: #f8fafc;
+    --mgs-text-muted: #94a3b8;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid rgb(99 102 241 / .38) !important;
+    outline-offset: 3px;
+}
+
+:where(input, select, textarea):disabled {
+    cursor: not-allowed;
+    opacity: .65;
+    background-color: #f1f5f9;
+}
+.dark :where(input, select, textarea):disabled { background-color: #1e293b; }
+
+/* Prevent clipped text, placeholder overlap and browser zoom on mobile. */
+:where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea) {
+    min-width: 0;
+    max-width: 100%;
+    line-height: 1.45;
+    font-size: max(16px, 1rem);
+}
+:where(input, textarea)::placeholder {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #94a3b8;
+    opacity: 1;
+}
+.dark :where(input, textarea)::placeholder { color: #64748b; }
+
+/* Shared treatment for legacy form controls that have not yet moved to form-control. */
+:where(main, [role="dialog"]) :where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea):not(.form-control) {
+    border-color: var(--mgs-border);
+    background-color: var(--mgs-surface);
+    color: var(--mgs-text);
+}
+
+/* Improve browser autofill in Chromium, Safari and mobile WebKit. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    caret-color: var(--mgs-text);
+    border-radius: inherit;
+}
+
+/* Consistent interactive behaviour across every screen. */
+:where(button, a, [role="button"]) {
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+    transition-duration: var(--mgs-motion-fast);
+    transition-timing-function: ease;
+}
+:where(button, [role="button"]):disabled {
+    pointer-events: none;
+    filter: saturate(.65);
+}
+
+/* Tables remain readable and scroll safely on narrow screens. */
+main table {
+    width: 100%;
+    color: var(--mgs-text);
+}
+main :where(th, td) {
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+main tbody tr:hover { background-color: rgb(248 250 252 / .82); }
+.dark main tbody tr:hover { background-color: rgb(30 41 59 / .55); }
+
+/* Professional empty/loading surfaces and skeletons. */
+.ui-empty-state {
+    display: grid;
+    min-height: 14rem;
+    place-items: center;
+    border: 1px dashed var(--mgs-border);
+    border-radius: var(--mgs-radius-lg);
+    padding: 2rem;
+    text-align: center;
+    background: color-mix(in srgb, var(--mgs-surface) 88%, transparent);
+}
+.ui-skeleton {
+    position: relative;
+    overflow: hidden;
+    border-radius: .75rem;
+    background: #e2e8f0;
+}
+.dark .ui-skeleton { background: #1e293b; }
+.ui-skeleton::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / .55), transparent);
+    animation: mgs-shimmer 1.35s infinite;
+}
+.dark .ui-skeleton::after { background: linear-gradient(90deg, transparent, rgb(148 163 184 / .12), transparent); }
+@keyframes mgs-shimmer { 100% { transform: translateX(100%); } }
+
+/* Dialogs and overlays share predictable mobile sizing. */
+[role="dialog"] {
+    max-height: min(90dvh, 56rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+@media (max-width: 767px) {
+    body { overflow-x: hidden; }
+    main { width: 100%; min-width: 0; }
+    main table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+    main :where(th, td) { min-width: 7.5rem; }
+    main :where(button, a[role="button"], .ui-button) { min-height: 2.75rem; }
+    [role="dialog"] { width: calc(100vw - 1.5rem) !important; margin-inline: auto; }
+}
+
+@media (forced-colors: active) {
+    :where(button, input, select, textarea, a) { forced-color-adjust: auto; }
+}

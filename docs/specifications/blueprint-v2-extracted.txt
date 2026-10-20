@@ -1,0 +1,403 @@
+MGS API PLATFORM
+Professional Blueprint V2
+Company: MGS Technologies LimitedProduct: MGS APIPlatform Type: Virtual Account API, Collections, Wallets, Webhooks and Developer Platform
+
+Prepared for project review before coding and implementation.
+
+Table of Contents
+1. Executive Summary
+2. Project Vision and Scope
+3. Business Model and Pricing
+4. System Flow and Actors
+5. Technology Stack
+6. Dashboard Plan
+7. Database Design and ERD
+8. Wallet and Ledger Logic
+9. KYC / NIN / BVN Verification
+10. API Authentication and Security
+11. Virtual Account API Design
+12. Webhook Design
+13. Payout and Withdrawal Security
+14. Provider Integration Architecture
+15. Notifications, Support and Audit Logs
+16. Roles and Permissions
+17. Backup, Monitoring and Disaster Recovery
+18. Development Roadmap
+19. Review Checklist Before Coding
+20. Conclusion
+
+1. Executive Summary
+MGS API Platform is planned as a developer-focused financial technology software platform under MGS Technologies Limited. The platform will allow approved merchants and developers to generate virtual accounts through API, receive payment notifications, manage wallets, verify transactions, and receive webhooks on their own websites or applications.
+The platform is not intended to claim bank status. In the first phase, MGS API will operate as a software/API layer that connects to licensed providers such as OPay, PalmPay, Monnify, PayVessel, BudPay or similar approved partners. The goal is to provide a smooth developer experience similar to Monnify, Paystack or PayVessel while keeping compliance, security and business logic under proper control.
+Item
+Decision
+Company name
+MGS Technologies Limited
+Product name
+MGS API
+Platform name
+MGS API Platform
+Primary service
+Virtual Account API and Collections
+Backend
+Laravel 13 API
+Frontend
+Vue 3
+Database
+MariaDB
+Target users
+Developers, VTU platforms, business websites and fintech software owners
+
+2. Project Vision and Scope
+The vision is to build a secure API platform where third-party developers and business owners can integrate MGS API into their websites and applications in order to create virtual accounts, receive collections, verify payments, manage wallet balances and receive webhooks.
+Main Objectives
+Provide a clean developer dashboard for API keys, webhooks and logs.
+Allow virtual account creation through API after customer KYC verification.
+Support wallet crediting through provider webhooks.
+Support merchant payouts with strong security checks.
+Enable provider failover so the system can switch from one provider to another when needed.
+Maintain full audit logs for security, compliance and dispute resolution.
+Out of Scope for Version 1
+Direct banking infrastructure without licensed partners.
+Direct card processing without an approved card processor.
+Claiming to be a bank, microfinance bank, payment service bank or CBN-licensed processor before obtaining appropriate approvals.
+Full public launch before internal testing and provider approval.
+3. Business Model and Pricing
+MGS API will earn revenue mainly from collection fees, payout fees, and later optional subscription tiers. Virtual account creation is planned to be free in the first phase to attract developers and merchants.
+Service
+Pricing Decision
+Virtual Account Creation
+Free
+Customer KYC
+Free or provider-cost pass-through depending on partner pricing
+Collections / Funding
+Tier-based charge
+Payout / Withdrawal
+Separate fee to be decided during provider integration
+Subscriptions
+Future phase only
+
+Collection Fee Structure
+Transaction Amount
+MGS Fee
+₦100 - ₦200
+₦5
+₦201 - ₦1,000
+₦10
+₦1,001 - ₦5,000
+₦25
+₦5,001 - ₦9,999
+₦50
+₦10,000 and above
+₦100
+
+Important note: before production launch, provider fees must be compared against this pricing to make sure MGS API does not operate at a loss. If provider charges are higher, the pricing rules should be adjusted in the admin dashboard.
+4. System Flow and Actors
+Main Actors
+Actor
+Role
+Super Admin
+Controls the whole platform, providers, pricing and users.
+Finance Admin
+Manages revenue, payouts, withdrawals and financial reports.
+Support Admin
+Handles tickets, merchant issues and failed transaction cases.
+Merchant / Developer
+Uses the API to create virtual accounts and receive payments.
+Merchant Customer
+Pays money into a generated virtual account.
+Provider
+OPay, PalmPay, Monnify, PayVessel or similar partner that creates real virtual accounts.
+Banking Infrastructure
+Underlying bank/payment rails used by the provider.
+
+Main Virtual Account Flow
+Merchant registers and verifies account    ↓Merchant completes business profile    ↓Admin approves merchant    ↓Merchant generates API keys    ↓Merchant creates customer    ↓Customer completes NIN or BVN KYC    ↓Merchant calls MGS API to create virtual account    ↓MGS API validates API key, merchant status and KYC status    ↓MGS API calls provider API    ↓Provider returns account name, account number and bank name    ↓MGS API returns virtual account details to merchant    ↓Customer pays into virtual account    ↓Provider sends webhook to MGS API    ↓MGS API verifies webhook and credits merchant wallet    ↓MGS API sends webhook to merchant website    ↓Transaction completed
+5. Technology Stack
+Layer
+Technology
+Backend
+Laravel 13 REST API
+Frontend
+Vue 3
+Database
+MariaDB
+Authentication
+Laravel Sanctum for dashboard users; API key authentication for public APIs
+Queue System
+Laravel Queues / Redis later
+Server
+Ubuntu VPS, Nginx, PHP 8.3+
+Storage
+Local storage in development; cloud backup in production
+Monitoring
+Server monitoring, API logs, provider health checks
+
+6. Dashboard Plan
+Merchant Dashboard
+Overview: wallet balance, today’s transactions, success rate and API status.
+Customers: create customers and check KYC status.
+KYC Verification: NIN/BVN verification status.
+Virtual Accounts: account list, provider, status and customer.
+Transactions: pending, successful, failed and reversed collections.
+Wallet: available balance, ledger balance and wallet history.
+Payouts: withdrawal request, payout history and bank account management.
+API Keys: live/test keys, secret key reset and IP whitelist.
+Webhooks: webhook URL, webhook secret, retry logs and failed deliveries.
+API Logs: endpoint, request status, IP address and response code.
+Settings: profile, security, password, withdrawal PIN and 2FA.
+Admin Dashboard
+Overview: total merchants, total collections, total revenue, provider status and failed webhooks.
+Merchants: approve, suspend, review documents and view balances.
+Customers: view customer records and KYC status.
+KYC Requests: approve/review failed or suspicious KYC cases.
+Virtual Accounts: view all created accounts by provider and status.
+Transactions: search, filter and resolve transaction issues.
+Payouts: approve high-risk or high-value payout requests.
+Providers: configure OPay, PalmPay, Monnify and other providers.
+Pricing: manage collection fee ranges and payout fees.
+Revenue: fee reports, provider cost and net profit.
+Support Tickets: merchant complaints and transaction issues.
+Audit Logs: admin/user actions for security and investigation.
+7. Database Design and ERD
+The database must support merchants, customers, KYC, virtual accounts, transactions, wallets, payouts, providers, webhooks, logs and admin operations.
+Table
+Purpose
+users
+Merchants/developers using the platform.
+wallets
+Main balance record for each merchant.
+wallet_transactions
+Every credit, debit, fee, refund and adjustment.
+customers
+Customers created by merchants before virtual account creation.
+customer_kyc_verifications
+KYC result and verification reference.
+api_keys
+Public key, secret key, webhook secret and environment.
+providers
+Provider settings such as OPay, PalmPay, Monnify.
+virtual_accounts
+Generated account details linked to customer and provider.
+transactions
+Collections/payment records.
+webhook_endpoints
+Merchant webhook URL and secret.
+webhook_logs
+Incoming and outgoing webhook records.
+payouts
+Withdrawal/payout requests.
+bank_accounts
+Merchant bank account records for payout.
+pricing_rules
+Tier-based collection fee configuration.
+revenues
+Platform fee and profit tracking.
+api_logs
+Public API request and response logs.
+admins
+Admin users.
+roles
+Admin/user roles.
+permissions
+Permission definitions.
+support_tickets
+Merchant support cases.
+system_settings
+Global platform settings.
+audit_logs
+Security and admin action logs.
+
+Core ERD Relationship Summary
+users.id = wallets.user_idusers.id = customers.merchant_idcustomers.id = customer_kyc_verifications.customer_idcustomers.id = virtual_accounts.customer_idproviders.id = virtual_accounts.provider_idvirtual_accounts.id = transactions.virtual_account_idtransactions.id = revenues.transaction_idwallets.id = wallet_transactions.wallet_idusers.id = payouts.user_idbank_accounts.id = payouts.bank_account_idusers.id = webhook_endpoints.user_idusers.id = api_keys.user_idusers.id = api_logs.user_id
+8. Wallet and Ledger Logic
+Every merchant must have a wallet. Wallet updates must never happen without creating a wallet transaction record. This makes dispute resolution, audit and security possible.
+Balance Type
+Meaning
+Available Balance
+Spendable balance after successful settlements and fees.
+Ledger Balance
+Total accounting balance including pending or held entries if needed.
+
+Wallet Credit Example
+Item
+Amount
+Customer payment
+₦50,000
+MGS fee
+₦100
+Merchant net credit
+₦49,900
+
+Wallet Rules
+Every credit must have a reference.
+Every debit must check available balance first.
+Every fee must be recorded separately for revenue reporting.
+Failed provider webhooks must not credit wallet.
+Duplicate webhook references must be rejected to prevent double credit.
+9. KYC / NIN / BVN Verification
+Before a virtual account is created for a customer, the customer should pass KYC verification using NIN or BVN through an approved verification provider. Because NIN/BVN are sensitive, the platform should avoid storing raw numbers where possible. Store verification result, masked reference, provider reference and verified name instead.
+Create Customer    ↓Submit NIN or BVN to verification provider    ↓Provider returns verified / failed    ↓If verified: allow virtual account creationIf failed: block virtual account creation
+10. API Authentication and Security
+Each merchant receives public key, secret key and webhook secret.
+Public APIs use bearer secret key authorization.
+All API requests must be logged.
+Rate limiting must be applied to prevent abuse.
+IP whitelisting should be optional but recommended.
+HMAC request signing should be supported for high-security merchants.
+Key rotation must be available from the dashboard.
+Test mode and live mode must be separated.
+Authorization: Bearer MGS_SK_live_xxxxxContent-Type: application/jsonX-MGS-Timestamp: 1720000000X-MGS-Signature: HMAC_SHA256(payload + timestamp, secret_key)
+11. Virtual Account API Design
+Endpoint
+Method
+Purpose
+/api/v1/customers
+POST
+Create a customer.
+/api/v1/customers/verify
+POST
+Verify customer KYC using NIN or BVN.
+/api/v1/virtual-accounts
+POST
+Create virtual account for verified customer.
+/api/v1/virtual-accounts/{id}
+GET
+Retrieve virtual account details.
+/api/v1/transactions
+GET
+List merchant transactions.
+/api/v1/transactions/verify/{reference}
+GET
+Verify payment reference.
+/api/v1/wallet/balance
+GET
+Get merchant wallet balance.
+
+12. Webhook Design
+The platform receives webhooks from providers and sends webhooks to merchants. Both directions must be verified and logged.
+Provider → MGS API webhookMGS API validates provider signatureMGS API checks duplicate referenceMGS API records transactionMGS API credits merchant walletMGS API sends webhook to merchant URLMerchant verifies MGS signature
+Webhook Event
+Meaning
+payment.success
+Customer payment confirmed and wallet credited.
+payment.failed
+Payment failed or rejected.
+payout.success
+Payout completed successfully.
+payout.failed
+Payout failed or reversed.
+virtual_account.created
+Virtual account created successfully.
+
+13. Payout and Withdrawal Security
+Payout is the most sensitive part of the platform because money leaves the system. It must be protected with multiple security layers.
+Security Layer
+Requirement
+Verified Merchant
+Merchant must be approved before payout.
+Bank Verification
+Account name must be verified before saving bank details.
+Withdrawal PIN
+Merchant must enter PIN before payout.
+OTP / 2FA
+Email OTP or Google Authenticator required.
+Device Check
+New device or strange IP should trigger extra verification.
+Bank Change Delay
+Changing bank account should trigger OTP and 24-hour delay.
+Daily Limits
+Limits based on merchant verification level.
+Risk Engine
+Large or suspicious payout should be held.
+Admin Review
+High-value payout requires admin approval.
+Audit Logs
+All payout actions must be logged.
+
+Recommended Payout Flow
+Merchant requests withdrawal    ↓System checks available balance    ↓System checks merchant verification status    ↓Merchant enters withdrawal PIN    ↓Merchant confirms OTP / 2FA    ↓System checks risk score and daily limit    ↓If low risk: provider transferIf high risk: hold for admin review    ↓Update payout status and notify merchant
+14. Provider Integration Architecture
+The platform should not call provider APIs directly inside controllers. Instead, it should use a Provider Manager and separate service classes for each provider. This makes the system easier to maintain and allows provider failover.
+MGS API Controller    ↓ProviderManager    ↓PalmPayService / OPayService / MonnifyService / PayVesselService    ↓Provider API
+Component
+Purpose
+ProviderManager
+Selects best active provider based on priority and health.
+OPayService
+Handles OPay-specific API calls.
+PalmPayService
+Handles PalmPay-specific API calls.
+MonnifyService
+Handles Monnify-specific API calls.
+PayVesselService
+Handles PayVessel-specific API calls.
+Provider Health Check
+Checks provider availability and failure rates.
+Failover Logic
+Switches to next provider if primary provider fails.
+
+15. Notifications, Support and Audit Logs
+Email notifications: payment received, payout success, API key reset, login alert.
+SMS/OTP notifications: payout OTP, login OTP, password reset.
+In-app notifications: dashboard bell for important events.
+Support ticket system: virtual account issue, transaction issue, payout issue, API issue.
+Audit logs: login, password change, PIN change, bank update, payout request, API key reset, admin action.
+16. Roles and Permissions
+Role
+Permissions
+Super Admin
+Full access to all modules.
+Finance Admin
+Transactions, wallets, payouts, revenue and settlement reports.
+Support Admin
+Merchants, customers, tickets and basic transaction review.
+Merchant
+Own dashboard, customers, virtual accounts, transactions, API keys and payouts.
+Merchant Staff (Future)
+Limited staff access under merchant account.
+
+17. Backup, Monitoring and Disaster Recovery
+Daily database backup.
+Weekly full server backup.
+Cloud backup copy for disaster recovery.
+Provider webhook retry mechanism.
+Failed webhook dashboard.
+Server monitoring for CPU, RAM, disk and API error rate.
+Emergency maintenance mode.
+Incident log and admin alerts.
+18. Development Roadmap
+Phase
+Deliverables
+Phase 1: Planning
+Blueprint, ERD, flow chart, pricing, security plan and API draft.
+Phase 2: Backend Foundation
+Laravel project, auth, users, wallets, API keys, providers and logs.
+Phase 3: Core API
+Customer creation, KYC status, virtual account creation and transaction verification.
+Phase 4: Dashboard
+Vue merchant dashboard and admin dashboard.
+Phase 5: Provider Integration
+Integrate first provider sandbox/live API.
+Phase 6: Webhooks and Wallet
+Incoming provider webhook, wallet credit, outgoing merchant webhook.
+Phase 7: Payout Security
+Bank accounts, withdrawal PIN, OTP, payout requests and review flow.
+Phase 8: Testing
+Unit tests, API tests, security review and live pilot.
+Phase 9: Production
+Deployment, monitoring, support and partnership scaling.
+
+19. Review Checklist Before Coding
+Confirm final company name: MGS Technologies Limited.
+Confirm product name: MGS API.
+Confirm domain/subdomain for developer portal.
+Confirm first provider to approach or integrate.
+Confirm KYC provider or KYC approach.
+Review pricing against provider fees.
+Review payout security rules.
+Review database tables and relationships.
+Review dashboard menus and user flow.
+Prepare partnership proposal and company profile.
+20. Conclusion
+MGS API Platform is a serious fintech-style software project. The strongest approach is to complete planning and review before coding, then build the system module by module. The first production version should focus on virtual accounts, customer KYC, collections, wallet management, webhooks, merchant dashboard, admin dashboard and payout security. Direct banking or payment processor claims should be avoided until proper approvals, partnerships and compliance structures are in place.

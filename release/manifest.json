@@ -1,0 +1,13 @@
+{
+  "archive": "mgs-api-staging-handover-20261004.zip",
+  "sha256": "9ee919771fa658dc50409c4965ffd5b711b94b2621a7d82ac2dd58d3bb78e762",
+  "source_files": 531,
+  "excluded": [
+    ".env",
+    "database contents",
+    "uploads",
+    "dependencies",
+    "logs",
+    "runtime cache"
+  ]
+}

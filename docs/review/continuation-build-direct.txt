@@ -1,0 +1,65 @@
+vite v8.1.0 building client environment for production...
+[2K
+transforming...✓ 167 modules transformed.
+rendering chunks...
+computing gzip size...
+public/build/manifest.json                            12.08 kB │ gzip:  1.59 kB
+public/build/assets/HelpSupport-Dh41MvXb.css           0.11 kB │ gzip:  0.10 kB
+public/build/assets/Merchants-DhoR5yT8.css             0.27 kB │ gzip:  0.19 kB
+public/build/assets/Customers-R_ti9u_8.css             0.29 kB │ gzip:  0.20 kB
+public/build/assets/Payouts-CfVeCiLY.css               0.34 kB │ gzip:  0.23 kB
+public/build/assets/Register-6R3cIGfe.css              0.41 kB │ gzip:  0.25 kB
+public/build/assets/Settings-CcU_0H7I.css              0.41 kB │ gzip:  0.25 kB
+public/build/assets/WithdrawalSettings-BKUafVaE.css    0.47 kB │ gzip:  0.25 kB
+public/build/assets/Payouts-C8uwfboW.css               0.52 kB │ gzip:  0.28 kB
+public/build/assets/Providers-bsjWhhfi.css             0.54 kB │ gzip:  0.27 kB
+public/build/assets/SupportTickets-Cg6g0Smg.css        0.54 kB │ gzip:  0.27 kB
+public/build/assets/Notifications-BBq_DdWb.css         0.54 kB │ gzip:  0.30 kB
+public/build/assets/AdminLayout-CfKHp5yX.css           0.55 kB │ gzip:  0.29 kB
+public/build/assets/Transactions-B-5Y_16r.css          0.56 kB │ gzip:  0.28 kB
+public/build/assets/app-BxhtPH7P.css                   0.56 kB │ gzip:  0.19 kB
+public/build/assets/ForgotPassword-DdHM5vXc.css        0.56 kB │ gzip:  0.28 kB
+public/build/assets/Login-BrTGBmyA.css                 0.56 kB │ gzip:  0.27 kB
+public/build/assets/MerchantLayout-CqRlJ4C1.css        0.71 kB │ gzip:  0.34 kB
+public/build/assets/Reports-BdtJaSm8.css               0.91 kB │ gzip:  0.36 kB
+public/build/assets/Customers-CEn5TKe6.css             0.94 kB │ gzip:  0.36 kB
+public/build/assets/ActivityLogs-CxSc5Ip3.css          1.06 kB │ gzip:  0.41 kB
+public/build/assets/Webhooks-DyCq3oeR.css              1.48 kB │ gzip:  0.51 kB
+public/build/assets/app-D-3Sb6UR.css                 104.16 kB │ gzip: 16.93 kB
+public/build/assets/NotFound-DJ39MO59.js               0.65 kB │ gzip:  0.44 kB
+public/build/assets/Security-Bl3pR22F.js               3.93 kB │ gzip:  1.58 kB
+public/build/assets/ActivityLogs-BBrWoAC7.js           4.10 kB │ gzip:  1.78 kB
+public/build/assets/Wallet-goZH7Zt_.js                 6.56 kB │ gzip:  2.13 kB
+public/build/assets/Documentation-D5EE9jNs.js          6.68 kB │ gzip:  2.21 kB
+public/build/assets/ForgotPassword-C0DbGQ-5.js         8.12 kB │ gzip:  2.99 kB
+public/build/assets/ApiKeys-CvZE9pdw.js                8.27 kB │ gzip:  3.01 kB
+public/build/assets/ResetPassword-CAx_DlZZ.js          8.54 kB │ gzip:  3.26 kB
+public/build/assets/Transactions-hCttNaD7.js           8.73 kB │ gzip:  2.49 kB
+public/build/assets/Notifications-DZaDgAty.js          8.91 kB │ gzip:  2.89 kB
+public/build/assets/Analytics-CvnH0QGp.js              9.77 kB │ gzip:  3.29 kB
+public/build/assets/VirtualAccounts-C0fbb2QO.js       10.56 kB │ gzip:  3.04 kB
+public/build/assets/Login-D3i1M6UJ.js                 12.41 kB │ gzip:  4.26 kB
+public/build/assets/Customers-D2d-4pSb.js             12.49 kB │ gzip:  3.68 kB
+public/build/assets/Webhooks-DxK2WfE8.js              14.50 kB │ gzip:  4.59 kB
+public/build/assets/Settings-BEAnDpNF.js              15.02 kB │ gzip:  4.12 kB
+public/build/assets/Dashboard-DO1Sl8G_.js             15.58 kB │ gzip:  4.84 kB
+public/build/assets/HelpSupport-WD6EUqq9.js           15.63 kB │ gzip:  4.01 kB
+public/build/assets/AdminLayout-BRJAAoRx.js           15.88 kB │ gzip:  5.08 kB
+public/build/assets/Dashboard-TqOPhd9O.js             16.22 kB │ gzip:  4.69 kB
+public/build/assets/Reports-nTCreBse.js               16.89 kB │ gzip:  5.05 kB
+public/build/assets/Payouts-BFRLJHAf.js               17.81 kB │ gzip:  5.54 kB
+public/build/assets/Register-BgJEHDXU.js              20.29 kB │ gzip:  5.80 kB
+public/build/assets/Customers-Bax_VdOC.js             21.33 kB │ gzip:  5.93 kB
+public/build/assets/MerchantLayout-vy9g6Ni2.js        21.47 kB │ gzip:  6.19 kB
+public/build/assets/Settings-B0ZeG2Ig.js              22.05 kB │ gzip:  5.29 kB
+public/build/assets/Merchants-B8BiYTVm.js             22.23 kB │ gzip:  6.17 kB
+public/build/assets/WithdrawalSettings-Bkq1QSfi.js    23.09 kB │ gzip:  6.15 kB
+public/build/assets/Transactions-kzWykvM2.js          23.12 kB │ gzip:  6.28 kB
+public/build/assets/Payouts-yfImOryo.js               24.05 kB │ gzip:  6.70 kB
+public/build/assets/SupportTickets-Dm3-f7B7.js        24.74 kB │ gzip:  7.06 kB
+public/build/assets/BusinessActivations-DgvFoJgX.js   31.32 kB │ gzip:  8.42 kB
+public/build/assets/ActivateBusiness-DGzg3qzA.js      43.17 kB │ gzip: 11.28 kB
+public/build/assets/Providers-5P8X4kfO.js             43.91 kB │ gzip: 10.36 kB
+public/build/assets/app-BTw34hkY.js                  178.15 kB │ gzip: 66.57 kB
+
+✓ built in 2m 27s
